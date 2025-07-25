@@ -2,6 +2,7 @@
     "files.associations": {
         "atomic": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "map": "cpp"
     }
 }

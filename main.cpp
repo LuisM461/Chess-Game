@@ -1,8 +1,8 @@
 //#include <SFML/Graphics.hpp>
 #include <iostream>
-#include <map>                              // allow the usage to create maps
+#include <map>                                              // allow the usage to create maps
 
-using namespace std;                        // removes the need to constantly be using std::
+using namespace std;                                        // removes the need to constantly be using std::
 
 /*In order to compile this code, you have to run command:
     
@@ -24,31 +24,27 @@ int main()
     */
     const int rows = 8;
     const int cols = 8;
-    string board_array[rows][cols];         // this is the array for the chess board
+    char file;
+    char rank;
 
-    map<pair<int, int>, string> board;
-    board = {{{0,0}, "A1"}, {{0,1}, "A2"}};
-
-
-    cout << "Hello World" << endl;          // Easter Egg
-    cout << board.at({0,0}) << endl;
+    map<pair<int, int>, string> board;                      // This is the map for the chess board
 
     for (int i = 0; i < rows; i++) {
+        char rank = char('8' - i);
+
         for (int j = 0; j < cols; j++) {
-            board_array[i][j] = "[ ] ";
+            char file = char('A' + j); 
+            board[{i,j}] = string(1, file) + rank;
         }
     }
 
-    for (int i = 0; i < rows; i++) {        // this for loop is what prints the array onto the terminal
+    for (int i = 0; i < rows; i++) {                        // This prints out the board squares in the terminal
         for (int j = 0; j < cols; j++) {
-            cout << board_array[i][j];
-            
-            if (j == (rows - 1)) {
-                cout << endl;
-            }
-            
+            cout << "[" << board[{i, j}] << "]" << " ";
         }
+        cout << endl;
     }
+
 
     // King, Queen, Rook, Knight, Bishop, Pawn
     class King {
